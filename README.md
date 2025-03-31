@@ -16,9 +16,9 @@ Siga os passos abaixo para configurar e executar o projeto:
 1. **Clone o repositório**:
    Abra o terminal e execute:
    git clone https://github.com/richardtoxz/petconnectcli.git
-
-1.1- ou baixe o arquivo como zip no github
-  Extraia e siga os comandos abaixo
+   
+   ou baixe o arquivo como zip no github
+   Extraia e siga os comandos abaixo
 
 2. Acesse a pasta do projeto
  cd petconnectcli
