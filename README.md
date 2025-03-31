@@ -33,3 +33,11 @@ Siga os passos abaixo para configurar e executar o projeto:
 1- Dentro do diretorio, no cmd de o seguinte comando :
 
  npm start
+
+2- ifrutascliOrm
+
+De esses comandos no my sql 
+ 
+CREATE DATABASE ifrutas;
+
+USE ifrutas;
