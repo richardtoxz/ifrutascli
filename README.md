@@ -1,6 +1,6 @@
-# PetConnect CLI
+# iFrutas CLI
 
-Este é um projeto CLI (Command Line Interface) para gerenciar produtos e serviços de um petshop. Ele permite criar, listar, buscar, atualizar e remover produtos e serviços.
+Este é um projeto CLI (Command Line Interface) para gerenciar produtos e serviços de um frutaria. Ele permite criar, listar, buscar, atualizar e remover produtos e serviços.
 
 ## Requisitos
 
@@ -15,13 +15,13 @@ Siga os passos abaixo para configurar e executar o projeto:
 
 1. **Clone o repositório**:
    Abra o terminal e execute:
-   git clone https://github.com/richardtoxz/petconnectcli.git
+   git clone https://github.com/richardtoxz/ifrutascli.git
    
    ou baixe o arquivo como zip no github
    Extraia e siga os comandos abaixo
 
 2. Acesse a pasta do projeto
- cd petconnectcli
+ cd petconnectcli ou cd petconnectcliOrm
 
 3. Instale as dependencias: 
   npm install
