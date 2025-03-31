@@ -1,0 +1,27 @@
+# Dependências
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+
+# Arquivos de compilação
+dist/
+build/
+*.tsbuildinfo
+
+# Arquivos de ambiente
+.env
+.env.local
+.env.*.local
+
+# Configuração do banco de dados
+ormconfig.json
+ormconfig.js
+
+# Logs
+logs/
+*.log
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
