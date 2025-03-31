@@ -21,7 +21,7 @@ Siga os passos abaixo para configurar e executar o projeto:
    Extraia e siga os comandos abaixo
 
 2. Acesse a pasta do projeto
- cd petconnectcli ou cd petconnectcliOrm
+ cd ifrutascli ou cd ifrutascliOrm
 
 3. Instale as dependencias: 
   npm install
