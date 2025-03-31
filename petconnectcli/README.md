@@ -1,6 +1,6 @@
-# PetConnect CLI
+# IFrutas CLI
 
-Este é um projeto CLI (Command Line Interface) para gerenciar produtos e serviços de um petshop. Ele permite criar, listar, buscar, atualizar e remover produtos e serviços.
+Este é um projeto CLI (Command Line Interface) para gerenciar categorias e produtos de frutas. Ele permite criar, listar, buscar, atualizar e remover categorias e produtos.
 
 ## Requisitos
 

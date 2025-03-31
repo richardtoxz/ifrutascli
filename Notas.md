@@ -1,8 +1,16 @@
 # Notas.md
 
+Integrantes do grupo:
+RICHARD RODRIGUES DE HOLANDA ANDRADE  //  uc23200634
+MICHAEL GABRIEL DA CONCEIÇÃO COSTA    //  Uc23200045
+MICAEL ARTHUR FERRO DOS SANTOS        //  uc23100001
+PABLO HENRIQUE DOURADO MACEDO         //  Uc23102392
+PEDRO HENRIQUE MARTINS BARBOSA        //
+VINICIUS BORGES DE OLIVEIRA           // 
+
 ## TypeScript: Tipagem Adequada
 
-No projeto PetConnect CLI, utilizamos TypeScript com tipagem para garantir maior segurança e legibilidade do código.
+No projeto IFrutas CLI, utilizamos TypeScript com tipagem para garantir maior segurança e legibilidade do código.
 
 ```typescript
 // Exemplo de função com tipagem adequada
@@ -11,7 +19,7 @@ function calcularPrecoTotal(preco: number, quantidade: number): number {
 }
 
 // Uso de Repository com tipagem específica
-const produtoRepository: Repository<Produto> = AppDataSource.getRepository(Produto);
+const categoriaRepository: Repository<Categoria> = AppDataSource.getRepository(Categoria);
 ```
 
 ## Modularização
@@ -22,10 +30,10 @@ O projeto está organizado seguindo princípios de modularização, separando re
 src/
 ├── entities/         # Definições de entidades para o TypeORM
 │   ├── produto.ts
-│   └── servico.ts
+│   └── categoria.ts
 ├── modules/          # Módulos funcionais
 │   ├── produtos.ts   # Lógica para gerenciamento de produtos
-│   ├── servicos.ts   # Lógica para gerenciamento de serviços
+│   ├── categorias.ts # Lógica para gerenciamento de categorias
 │   ├── models.ts     # Definições de modelos
 │   ├── interfaces.ts # Definições de interfaces
 │   ├── enum.ts       # Definições de enums
@@ -42,9 +50,9 @@ O projeto evoluiu de uma implementação com persistência em memória para uma 
 ```typescript
 // Exemplo de persistência em memória (src/modules/data.ts)
 export const produtos: Produto[] = [
-    new Produto(1, 'Ração para cães', 'Ração premium para cães', 150.0, 10, 1),
-    new Produto(2, 'Shampoo para gatos', 'Shampoo especial para gatos', 50.0, 5, 2),
-    new Produto(3, 'Coleira para cães', 'Coleira ajustável para cães', 30.0, 20, 1),
+    new Produto(1, 'Maçã', 'Maçã vermelha fresca', 5.0, 100, 1),
+    new Produto(2, 'Suco de Laranja', 'Suco de laranja natural', 8.0, 30, 2),
+    new Produto(3, 'Banana', 'Banana prata fresca', 3.0, 150, 1),
 ];
 ```
 
@@ -58,10 +66,10 @@ export const AppDataSource = new DataSource({
   port: 3306, 
   username: 'root', 
   password: 'c@tolic@', 
-  database: 'petconnect', 
+  database: 'ifrutas', 
   synchronize: true,
   logging: false,
-  entities: [Servico, Produto],
+  entities: [Categoria, Produto],
   migrations: ['./migrations/*.ts'],
   subscribers: [],
 });
@@ -85,10 +93,10 @@ O projeto utiliza diversos tipos básicos do TypeScript:
 
 ```typescript
 // number - para representar valores numéricos
-const preco: number = 150.0;
+const preco: number = 5.0;
 
 // string - para representar texto
-const nome: string = 'Ração para cães';
+const nome: string = 'Maçã';
 
 // boolean - para representar valores verdadeiro/falso
 const ativo: boolean = true;
@@ -151,7 +159,7 @@ interface IProduto {
 }
 
 // Type - mais flexível e pode representar unions, intersections, etc.
-type ProdutoOuServico = Produto | Servico;
+type ProdutoOuCategoria = Produto | Categoria;
 ```
 
 ### Diferenças entre Type e Interface
@@ -247,7 +255,7 @@ function encontrarPorId<T extends { id: number }>(items: T[], id: number): T | u
 
 // Exemplo de uso com diferentes tipos
 const produto = encontrarPorId(produtos, 1);
-const servico = encontrarPorId(servicos, 2);
+const categoria = encontrarPorId(categorias, 2);
 
 // Classes genéricas
 class Repositorio<T> {
@@ -270,17 +278,17 @@ const repositorioProdutos = new Repositorio<Produto>();
 ```typescript
 // Enum para categorias de produtos
 export enum CategoriaTipo {
-  PRODUTO = 'Produto',
-  SERVIÇO = 'Serviço',
+  FRUTA = 'Fruta',
+  DERIVADO = 'Derivado',
 }
 
 // Uso do enum
 function obterDescricaoCategoria(tipo: CategoriaTipo): string {
   switch (tipo) {
-    case CategoriaTipo.PRODUTO:
-      return 'Produtos físicos disponíveis para venda';
-    case CategoriaTipo.SERVIÇO:
-      return 'Serviços oferecidos pelo petshop';
+    case CategoriaTipo.FRUTA:
+      return 'Frutas frescas disponíveis para venda';
+    case CategoriaTipo.DERIVADO:
+      return 'Produtos derivados de frutas';
     default:
       return 'Categoria não reconhecida';
   }
@@ -358,9 +366,9 @@ const produtoRepository = AppDataSource.getRepository(Produto);
 
 // Criar
 const produto = produtoRepository.create({
-  nome: "Ração Premium",
-  descricao: "Ração de alta qualidade",
-  preco: 89.90,
+  nome: "Maçã Gala",
+  descricao: "Maçã gala fresca e selecionada",
+  preco: 6.90,
   quantidade: 50,
   categoriaId: 1
 });
@@ -371,7 +379,7 @@ const produtos = await produtoRepository.find();
 const produtoPorId = await produtoRepository.findOneBy({ id: 1 });
 
 // Atualizar
-produtoPorId.preco = 99.90;
+produtoPorId.preco = 7.90;
 await produtoRepository.save(produtoPorId);
 
 // Remover
@@ -388,10 +396,10 @@ export const AppDataSource = new DataSource({
   port: 3306, 
   username: 'root', 
   password: 'c@tolic@', 
-  database: 'petconnect', 
+  database: 'ifrutas', 
   synchronize: true, 
   logging: false,    
-  entities: [Servico, Produto],
+  entities: [Categoria, Produto],
   migrations: ['./migrations/*.ts'],
   subscribers: [],
 });
@@ -408,3 +416,4 @@ AppDataSource.initialize()
 ```
 
 ---
+```

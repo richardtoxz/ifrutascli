@@ -1,4 +1,4 @@
 export enum CategoriaTipo {
-    PRODUTO = 'Produto',
-    SERVIÇO = 'Serviço',
-}
+    FRUTA = 'Fruta',
+    DERIVADO = 'Derivado',
+  }

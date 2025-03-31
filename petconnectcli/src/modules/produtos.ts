@@ -58,8 +58,7 @@ async function criarProduto() {
       name: 'categoriaId',
       message: 'Escolha a categoria do produto:',
       choices: categorias.map(c => ({ name: c.nome, value: c.id }))
-    },
-    { type: 'confirm', name: 'ativo', message: 'O produto está ativo?', default: true }
+    }
   ]);
 
   const novoProduto = new Produto(
@@ -69,9 +68,7 @@ async function criarProduto() {
     resposta.preco,
     resposta.quantidade,
     resposta.categoriaId,
-    new Date(),
-    undefined,
-    resposta.ativo
+    new Date()
   );
 
   produtos.push(novoProduto);
@@ -87,8 +84,8 @@ function listarProdutos() {
   produtos.forEach(prod => {
     const categoria = categorias.find(c => c.id === prod.categoriaId);
     console.log(
-      `ID: ${prod.id}, Nome: ${prod.nome}, Preço: R$${prod.preco}, Quantidade: ${prod.quantidade}, ` +
-      `Categoria: ${categoria ? categoria.nome : 'Categoria não encontrada'}, Ativo: ${prod.ativo}, ` +
+      `ID: ${prod.id}, Nome: ${prod.nome}, Preço: R$${prod.preco.toFixed(2)}, Quantidade: ${prod.quantidade}, ` +
+      `Categoria: ${categoria ? categoria.nome : 'Categoria não encontrada'}, ` +
       `Data de Criação: ${prod.dataCriacao.toLocaleDateString()}, ` +
       `Data de Atualização: ${prod.dataAtualizacao ? prod.dataAtualizacao.toLocaleDateString() : 'N/A'}`
     );
@@ -111,7 +108,7 @@ async function buscarProduto() {
     resultado.forEach(prod => {
       const categoria = categorias.find(c => c.id === prod.categoriaId);
       console.log(
-        `ID: ${prod.id}, Nome: ${prod.nome}, Preço: R$${prod.preco}, Quantidade: ${prod.quantidade}, Categoria: ${categoria ? categoria.nome : 'Categoria não encontrada'}`
+        `ID: ${prod.id}, Nome: ${prod.nome}, Preço: R$${prod.preco.toFixed(2)}, Quantidade: ${prod.quantidade}, Categoria: ${categoria ? categoria.nome : 'Categoria não encontrada'}`
       );
     });
   } else {
@@ -141,8 +138,7 @@ async function atualizarProduto() {
       name: 'categoriaId',
       message: 'Escolha a nova categoria do produto:',
       choices: categorias.map(c => ({ name: c.nome, value: c.id }))
-    },
-    { type: 'confirm', name: 'ativo', message: 'O produto está ativo?', default: true }
+    }
   ]);
 
   const produto = produtos.find(prod => prod.id === resposta.id);
@@ -152,7 +148,6 @@ async function atualizarProduto() {
     produto.preco = resposta.preco;
     produto.quantidade = resposta.quantidade;
     produto.categoriaId = resposta.categoriaId;
-    produto.ativo = resposta.ativo;
     produto.dataAtualizacao = new Date();
     console.log('Produto atualizado com sucesso!');
   }

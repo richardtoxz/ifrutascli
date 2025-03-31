@@ -1,5 +1,5 @@
 import inquirer from 'inquirer';
-import { menuServicos } from './modules/servicos';
+import { menuCategorias } from './modules/categorias';
 import { menuProdutos } from './modules/produtos';
 
 async function mainMenu() {
@@ -9,7 +9,7 @@ async function mainMenu() {
       name: 'opcao',
       message: 'Escolha uma opção:',
       choices: [
-        'Gerenciar Serviços',
+        'Gerenciar Categorias',
         'Gerenciar Produtos',
         'Sair'
       ]
@@ -17,8 +17,8 @@ async function mainMenu() {
   ]);
 
   switch (resposta.opcao) {
-    case 'Gerenciar Serviços':
-      await menuServicos();
+    case 'Gerenciar Categorias':
+      await menuCategorias();
       break;
     case 'Gerenciar Produtos':
       await menuProdutos();
@@ -31,4 +31,5 @@ async function mainMenu() {
   await mainMenu();
 }
 
+console.log('Bem-vindo ao sistema IFrutas!');
 mainMenu();

@@ -1,4 +1,3 @@
-import { CategoriaTipo } from './enum';
 import { ICategoria, IProduto } from './interfaces';
 
 export class Categoria implements ICategoria {
@@ -6,9 +5,7 @@ export class Categoria implements ICategoria {
     public id: number,
     public nome: string,
     public descricao: string,
-    public dataCriacao: Date = new Date(),
-    public dataAtualizacao?: Date,
-    public ativo: boolean = true
+    public dataCriacao: Date = new Date()
   ) {}
 }
 
@@ -21,7 +18,6 @@ export class Produto implements IProduto {
     public quantidade: number,
     public categoriaId: number,
     public dataCriacao: Date = new Date(),
-    public dataAtualizacao?: Date,
-    public ativo: boolean = true
+    public dataAtualizacao?: Date
   ) {}
 }

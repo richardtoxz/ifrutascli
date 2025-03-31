@@ -1,13 +1,13 @@
 import { Categoria, Produto } from './models';
-import { CategoriaTipo } from './enum';
 
 export const categorias: Categoria[] = [
-    new Categoria(1, 'Produtos do Petshop', 'Produtos relacionados ao petshop'),
-    new Categoria(2, 'Serviços do Petshop', 'Serviços oferecidos pelo petshop'),
+    new Categoria(1, 'Frutas Cítricas', 'Frutas com alto teor de ácido cítrico e sabor ácido'),
+    new Categoria(2, 'Frutas Vermelhas', 'Frutas pequenas e de sabor agridoce'),
+    new Categoria(3, 'Frutas Tropicais', 'Frutas típicas de regiões tropicais com sabor doce e exótico'),
 ];
 
 export const produtos: Produto[] = [
-    new Produto(1, 'Ração para cães', 'Ração premium para cães', 150.0, 10, 1),
-    new Produto(2, 'Shampoo para gatos', 'Shampoo especial para gatos', 50.0, 5, 2),
-    new Produto(3, 'Coleira para cães', 'Coleira ajustável para cães', 30.0, 20, 1),
+  new Produto(1, 'Maçã', 'Maçã vermelha fresca', 5.0, 100, 3),
+  new Produto(2, 'Suco de Laranja', 'Suco de laranja natural', 8.0, 30, 1),
+  new Produto(3, 'Banana', 'Banana prata fresca', 3.0, 150, 3),
 ];
