@@ -6,7 +6,9 @@ export class Categoria implements ICategoria {
     public id: number,
     public nome: string,
     public descricao: string,
-    public dataCriacao: Date = new Date()
+    public dataCriacao: Date = new Date(),
+    public dataAtualizacao?: Date,
+    public ativo: boolean = true
   ) {}
 }
 
@@ -19,6 +21,7 @@ export class Produto implements IProduto {
     public quantidade: number,
     public categoriaId: number,
     public dataCriacao: Date = new Date(),
-    public dataAtualizacao: Date = new Date()
+    public dataAtualizacao?: Date,
+    public ativo: boolean = true
   ) {}
 }

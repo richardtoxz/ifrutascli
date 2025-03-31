@@ -45,13 +45,17 @@ export async function menuServicos() {
 async function criarServico() {
   const resposta = await inquirer.prompt([
     { type: 'input', name: 'nome', message: 'Nome do serviço:' },
-    { type: 'input', name: 'descricao', message: 'Descrição do serviço:' }
+    { type: 'input', name: 'descricao', message: 'Descrição do serviço:' },
+    { type: 'confirm', name: 'ativo', message: 'O serviço está ativo?', default: true }
   ]);
 
   const novaCategoria = new Categoria(
     categorias.length + 1,
     resposta.nome,
-    resposta.descricao
+    resposta.descricao,
+    new Date(),
+    undefined,
+    resposta.ativo
   );
   categorias.push(novaCategoria);
   console.log('Serviço criado com sucesso!');
@@ -64,7 +68,11 @@ function listarServicos() {
     return;
   }
   categorias.forEach(cat => {
-    console.log(`ID: ${cat.id}, Nome: ${cat.nome}, Descrição: ${cat.descricao}`);
+    console.log(
+      `ID: ${cat.id}, Nome: ${cat.nome}, Descrição: ${cat.descricao}, Ativo: ${cat.ativo}, ` +
+      `Data de Criação: ${cat.dataCriacao.toLocaleDateString()}, ` +
+      `Data de Atualização: ${cat.dataAtualizacao ? cat.dataAtualizacao.toLocaleDateString() : 'N/A'}`
+    );
   });
 }
 
@@ -99,13 +107,16 @@ async function atualizarServico() {
       choices: categorias.map(cat => ({ name: cat.nome, value: cat.id }))
     },
     { type: 'input', name: 'nome', message: 'Novo nome do serviço:' },
-    { type: 'input', name: 'descricao', message: 'Nova descrição do serviço:' }
+    { type: 'input', name: 'descricao', message: 'Nova descrição do serviço:' },
+    { type: 'confirm', name: 'ativo', message: 'O serviço está ativo?', default: true }
   ]);
 
   const categoria = categorias.find(cat => cat.id === resposta.id);
   if (categoria) {
     categoria.nome = resposta.nome;
     categoria.descricao = resposta.descricao;
+    categoria.ativo = resposta.ativo;
+    categoria.dataAtualizacao = new Date();
     console.log('Serviço atualizado com sucesso!');
   }
 }
