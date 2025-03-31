@@ -1,6 +1,6 @@
 import inquirer from 'inquirer';
-import { menuCategorias } from './categorias';
-import { menuProdutos } from './produtos';
+import { menuServicos } from './modules/servicos';
+import { menuProdutos } from './modules/produtos';
 
 async function mainMenu() {
   const resposta = await inquirer.prompt([
@@ -9,7 +9,7 @@ async function mainMenu() {
       name: 'opcao',
       message: 'Escolha uma opção:',
       choices: [
-        'Gerenciar Categorias',
+        'Gerenciar Serviços',
         'Gerenciar Produtos',
         'Sair'
       ]
@@ -17,8 +17,8 @@ async function mainMenu() {
   ]);
 
   switch (resposta.opcao) {
-    case 'Gerenciar Categorias':
-      await menuCategorias();
+    case 'Gerenciar Serviços':
+      await menuServicos();
       break;
     case 'Gerenciar Produtos':
       await menuProdutos();

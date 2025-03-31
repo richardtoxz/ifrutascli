@@ -1,11 +1,12 @@
-export interface Categoria {
+export interface ICategoria {
     id: number;
     nome: string;
     descricao: string;
     dataCriacao: Date;
+    dataAtualizacao?: Date;
   }
   
-  export interface Produto {
+  export interface IProduto {
     id: number;
     nome: string;
     descricao: string;
@@ -13,5 +14,5 @@ export interface Categoria {
     quantidade: number;
     categoriaId: number;
     dataCriacao: Date;
-    dataAtualizacao: Date;
+    dataAtualizacao?: Date;
   }
