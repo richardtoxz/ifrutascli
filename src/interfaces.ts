@@ -1,11 +1,11 @@
-export interface Categoria {
+export interface ICategoria {
     id: number;
     nome: string;
     descricao: string;
     dataCriacao: Date;
   }
   
-  export interface Produto {
+  export interface IProduto {
     id: number;
     nome: string;
     descricao: string;

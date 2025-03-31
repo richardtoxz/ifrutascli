@@ -1,5 +1,5 @@
 import inquirer from 'inquirer';
-import { menuCategorias } from './categorias';
+import { menuServicos } from './servicos';
 import { menuProdutos } from './produtos';
 
 async function mainMenu() {
@@ -9,7 +9,7 @@ async function mainMenu() {
       name: 'opcao',
       message: 'Escolha uma opção:',
       choices: [
-        'Gerenciar Categorias',
+        'Gerenciar Serviços',
         'Gerenciar Produtos',
         'Sair'
       ]
@@ -17,8 +17,8 @@ async function mainMenu() {
   ]);
 
   switch (resposta.opcao) {
-    case 'Gerenciar Categorias':
-      await menuCategorias();
+    case 'Gerenciar Serviços':
+      await menuServicos();
       break;
     case 'Gerenciar Produtos':
       await menuProdutos();
