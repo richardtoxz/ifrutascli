@@ -1,43 +1,86 @@
 # iFrutas CLI
 
-Este é um projeto CLI (Command Line Interface) para gerenciar produtos e serviços de um frutaria. Ele permite criar, listar, buscar, atualizar e remover produtos e serviços.
+Um aplicativo de linha de comando (CLI) simples para gerenciar produtos e categorias de uma frutaria.
+
+## Visão Geral
+
+Este projeto oferece duas versões:
+- **ifrutascli**: Versão básica com armazenamento em memória
+- **ifrutascliOrm**: Versão avançada com armazenamento em banco de dados MySQL
 
 ## Requisitos
 
-Antes de executar o projeto, certifique-se de que você possui os seguintes requisitos instalados:
-
-- **Node.js**: Versão 16 ou superior. [Baixe aqui](https://nodejs.org/).
-- **Git**: Para clonar o repositório. [Baixe aqui](https://git-scm.com/).
+- Node.js (versão 16 ou superior)
+- MySQL (apenas para a versão com banco de dados)
 
 ## Instalação
 
-Siga os passos abaixo para configurar e executar o projeto:
+### 1. Obtenha o código
 
-1. **Clone o repositório**:
-   Abra o terminal e execute:
-   git clone https://github.com/richardtoxz/ifrutascli.git
-   
-   ou baixe o arquivo como zip no github
-   Extraia e siga os comandos abaixo
+**Opção A**: Clone o repositório via Git
+```
+git clone https://github.com/richardtoxz/ifrutascli.git
+```
 
-2. Acesse a pasta do projeto
- cd ifrutascli ou cd ifrutascliOrm
+**Opção B**: Baixe como ZIP
+- Acesse https://github.com/richardtoxz/ifrutascli
+- Clique em "Code" e depois "Download ZIP"
+- Extraia o arquivo baixado
 
-3. Instale as dependencias: 
-  npm install
+### 2. Escolha uma versão
 
------------------------------------------------------------------------------------------------------------------------------
+Navegue até a pasta da versão desejada:
 
-## Como executar
+```
+cd ifrutascli       # Para versão sem banco de dados
+```
 
-1- Dentro do diretorio, no cmd de o seguinte comando :
+OU
 
- npm start
+```
+cd ifrutascliOrm    # Para versão com banco de dados
+```
 
-2- ifrutascliOrm
+### 3. Instale as dependências
 
-De esses comandos no my sql 
- 
-CREATE DATABASE ifrutas;
+```
+npm install
+```
 
-USE ifrutas;
+## Como Executar
+
+### Versão Básica (ifrutascli)
+
+Simplesmente execute:
+```
+npm start
+```
+
+### Versão com Banco de Dados (ifrutascliOrm)
+
+1. Configure o MySQL
+   - Abra seu aplicativo MySQL (MySQL Workbench)
+   - Execute os seguintes comandos:
+   ```sql
+   CREATE DATABASE ifrutas;
+   USE ifrutas;
+   ```
+
+2. Inicie o aplicativo
+   ```
+   npm start
+   ```
+
+## Uso do Aplicativo
+
+Ao iniciar, você verá um menu com as seguintes opções:
+- **Gerenciar Categorias**: Criar, listar, atualizar ou remover categorias de frutas
+- **Gerenciar Produtos**: Criar, listar, atualizar ou remover produtos
+- **Sair**: Encerrar o programa
+
+Navegue usando as setas do teclado ↑↓ e pressione Enter para selecionar uma opção.
+
+## Solução de Problemas
+
+- **Erro de conexão com o banco de dados**: Verifique se o MySQL está rodando e se o usuário/senha no arquivo index.ts correspondem às suas configurações
+- **Pacotes não encontrados**: Execute `npm install` novamente para garantir que todas dependências foram instaladas

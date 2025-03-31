@@ -8,10 +8,10 @@ import { Produto } from './entities/produto';
 
 export const AppDataSource = new DataSource({
   type: 'mysql',
-  host: '127.0.0.1',
+  host: 'localhost', // coloque o host do seu banco de dados aqui
   port: 3306, 
   username: 'root', 
-  password: 'c@tolic@', 
+  password: 'c@tolic@',  // coloque a senha do seu banco de dados aqui
   database: 'ifrutas', 
   synchronize: true,
   logging: false,
