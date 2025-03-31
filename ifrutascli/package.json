@@ -2,7 +2,7 @@
   "dependencies": {
     "inquirer": "^12.5.0"
   },
-  "name": "petconnectcli",
+  "name": "ifrutascli",
   "version": "1.0.0",
   "main": "index.js",
   "devDependencies": {
@@ -16,14 +16,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/richardtoxz/petconnectcli.git"
+    "url": "git+https://github.com/richardtoxz/ifrutascli.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/richardtoxz/petconnectcli/issues"
+    "url": "https://github.com/richardtoxz/ifrutascli/issues"
   },
-  "homepage": "https://github.com/richardtoxz/petconnectcli#readme",
+  "homepage": "https://github.com/richardtoxz/ifrutascli#readme",
   "description": ""
 }
