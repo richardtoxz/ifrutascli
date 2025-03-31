@@ -3,6 +3,7 @@ export interface ICategoria {
     nome: string;
     descricao: string;
     dataCriacao: Date;
+    dataAtualizacao?: Date;
   }
   
   export interface IProduto {
@@ -13,5 +14,5 @@ export interface ICategoria {
     quantidade: number;
     categoriaId: number;
     dataCriacao: Date;
-    dataAtualizacao: Date;
+    dataAtualizacao?: Date;
   }

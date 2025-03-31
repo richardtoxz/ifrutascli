@@ -1,6 +1,6 @@
 import inquirer from 'inquirer';
-import { menuServicos } from './servicos';
-import { menuProdutos } from './produtos';
+import { menuServicos } from './modules/servicos';
+import { menuProdutos } from './modules/produtos';
 
 async function mainMenu() {
   const resposta = await inquirer.prompt([
