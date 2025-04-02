@@ -10,7 +10,7 @@ Este projeto oferece duas versões:
 
 ## Requisitos
 
-- Node.js (versão 16 ou superior)
+- Node.js
 - MySQL (apenas para a versão com banco de dados)
 
 ## Instalação
